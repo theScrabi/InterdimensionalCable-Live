@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build . -t nichtparajitsi
+docker build . -t interdimensional_cable
