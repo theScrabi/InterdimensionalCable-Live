@@ -3,8 +3,8 @@
 source config.sh
 
 docker run \
-    --name=nichtparajitsi \
+    --name=interdimensional_cable \
     --rm=true \
-    -p 127.0.0.1:5901:5901 \
+    -p 5901:5901 \
     -d \
-    nichtparajitsi
+    interdimensional_cable

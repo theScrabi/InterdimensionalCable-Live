@@ -15,7 +15,9 @@ RUN apt-get update && \
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
-RUN apt-get update && \
+RUN apt-get install -y software-properties-common && \
+	add-apt-repository ppa:obsproject/obs-studio && \
+	apt-get update && \
 	DEBIAN_FRONTEND=noninteractive apt-get install -y wget \ 
 		net-tools \
 		locales \
@@ -23,12 +25,11 @@ RUN apt-get update && \
 		supervisor \
 		fluxbox \
 		xinit \
-		obs\
-		xdotool && \
+		obs-studio \
+		xdotool \
+		tigervnc-standalone-server \
+		tigervnc-xorg-extension && \
 		apt-get clean -y  
-
-# letsinstall tigervnc
-RUN wget -qO- https://dl.bintray.com/tigervnc/stable/tigervnc-1.8.0.x86_64.tar.gz | tar xz --strip 1 -C /
 
 ENV DISPLAY=:1 \
 	VNC_COL_DEPTH=24 \
